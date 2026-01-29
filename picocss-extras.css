@@ -1,0 +1,205 @@
+:root {
+  /** Danger Colors (Red) */
+  --pico-danger: #C52F21; /* 550 */
+  --pico-danger-hover: #AF291D; /* 600 */
+  --pico-danger-focus: rgb(175, 41, 29, .5); /* 600 */
+
+  /** Warning Colors (Amber) */
+  --pico-warning: #FFBF00; /* 200 */
+  --pico-warning-text: #D8A100; /* 300 */
+  --pico-warning-hover: #E8AE01; /* 250 */
+  --pico-warning-focus: rgb(232, 174, 1, .5); /* 250 */
+
+  /** Info Colors (Cyan) */
+  --pico-info: #047878; /* 550 */
+  --pico-info-focus: rgb(4, 106, 106, .5); /* 600 */
+  --pico-info-hover: #046A6A; /* 600 */
+  
+  /** Animation Values */
+  --modal-duration: .2s;
+  --modal-shrink: .95;
+  --modal-distance: 1rem;
+}
+
+/** Dark Variants */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]),
+  :host(:not([data-theme="light"])) {
+    --pico-danger-hover: #D93526; /* 500 */
+    --pico-warning-text: #E8AE01; /* 250 */
+    --pico-warning-hover: #FECC63; /* 150 */
+    --pico-warning-focus: rgb(255, 191, 0, .5); /* 200 */
+    --pico-info-hover: #058686; /* 500 */
+  }
+}
+
+/** Danger Button */
+.danger {
+  &:not(.outline) {
+    --pico-background-color: var(--pico-danger);
+    --pico-border-color: var(--pico-danger);
+  }
+  
+  &.outline {
+    --pico-background-color: transparent;
+    --pico-border-color: var(--pico-danger);
+    --pico-color: var(--pico-danger);
+  }
+  
+  &:not(.outline):is(:hover, :active, :focus) {
+    --pico-background-color: var(--pico-danger-hover) !important;
+    --pico-border-color: var(--pico-danger-hover) !important;
+  }
+  
+  &.outline:is(:hover, :active, :focus) {
+    --pico-background-color: transparent;
+    --pico-border-color: var(--pico-danger-hover) !important;
+    --pico-color: var(--pico-danger-hover) !important;
+  }
+  
+  &:focus {
+    --pico-box-shadow: var(--pico-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)), 0 0 0 var(--pico-outline-width) var(--pico-danger-focus);
+  }
+}
+
+/** Warning Button */
+.warning {
+  &:not(.outline) {
+    --pico-background-color: var(--pico-warning);
+    --pico-border-color: var(--pico-warning);
+    --pico-color: black;
+  }
+  
+  &.outline {
+    --pico-background-color: transparent;
+    --pico-border-color: var(--pico-warning);
+    --pico-color: var(--pico-warning-text);
+  }
+  
+  &:not(.outline):is(:hover, :active, :focus) {
+    --pico-background-color: var(--pico-warning-hover) !important;
+    --pico-border-color: var(--pico-warning-hover) !important;
+  }
+  
+  &.outline:is(:hover, :active, :focus) {
+    --pico-background-color: transparent;
+    --pico-border-color: var(--pico-warning-hover) !important;
+    --pico-color: var(--pico-warning-hover) !important;
+  }
+  
+  &:focus {
+    --pico-box-shadow: var(--pico-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)), 0 0 0 var(--pico-outline-width) var(--pico-warning-focus);
+  }
+}
+
+/** Info Button */
+.info {
+  &:not(.outline) {
+    --pico-background-color: var(--pico-info);
+    --pico-border-color: var(--pico-info);
+  }
+  
+  &.outline {
+    --pico-background-color: transparent;
+    --pico-border-color: var(--pico-info);
+    --pico-color: var(--pico-info);
+  }
+  
+  &:not(.outline):is(:hover, :active, :focus) {
+    --pico-background-color: var(--pico-info-hover) !important;
+    --pico-border-color: var(--pico-info-hover) !important;
+  }
+  
+  &.outline:is(:hover, :active, :focus) {
+    --pico-background-color: transparent;
+    --pico-border-color: var(--pico-info-hover) !important;
+    --pico-color: var(--pico-info-hover) !important;
+  }
+  
+  &:focus {
+    --pico-box-shadow: var(--pico-button-hover-box-shadow, 0 0 0 rgba(0, 0, 0, 0)), 0 0 0 var(--pico-outline-width) var(--pico-info-focus);
+  }
+}
+
+/** Alerts */
+article.alert {
+  &.danger {
+    color: white;
+    background: var(--pico-danger);
+  }
+  
+  &.warning {
+    color: black;
+    background: var(--pico-warning);
+  }
+  
+  &.info {
+    color: white;
+    background: var(--pico-info);
+  }
+}
+
+/** Dialog Animations */
+dialog {
+  animation: fadeout var(--modal-duration) ease-out forwards;
+  
+  &[open] {
+    animation: fadein var(--modal-duration) ease-in forwards;
+  }
+
+  >article {
+    animation: slidedown var(--modal-duration) ease-out forwards;
+  }
+
+  &[open]>article {
+    animation: slideup var(--modal-duration) ease-in forwards;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    display: none;
+  }
+
+  to {
+    opacity: 1;
+    display: flex;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    display: flex;
+  }
+
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@keyframes slideup {
+  from {
+    margin-top: var(--modal-distance);
+    transform: scale(var(--modal-shrink));
+  }
+
+  to {
+    margin-top: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes slidedown {
+  from {
+    margin-top: 0;
+    transform: scale(1);
+  }
+
+  to {
+    margin-top: var(--modal-distance);
+    transform: scale(var(--modal-shrink));
+  }
+}
