@@ -213,8 +213,16 @@
   align-items: center;
 }
 
+.center {
+  text-align: center;
+}
+
 .bordered {
   border: 1px solid var(--pico-accordion-border-color);
+}
+
+.pointer {
+  cursor: pointer;
 }
 
 :is(button, [role="button"]) {
