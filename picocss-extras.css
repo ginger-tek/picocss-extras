@@ -205,8 +205,16 @@
   }
 }
 
-article.bordered {
+.grid.aligned {
+  align-items: center;
+}
+
+.bordered {
   border: 1px solid var(--pico-accordion-border-color);
+}
+
+:is(button, [role=button]).small {
+  padding: calc(var(--pico-spacing) * .5) calc(var(--pico-spacing) * .5);
 }
 
 /** Tables **/
