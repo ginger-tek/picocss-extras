@@ -180,6 +180,10 @@
     margin: 0;
   }
 
+  &.centered {
+    justify-content: center;
+  }
+
   &.spread {
     justify-content: space-between;
 
@@ -262,7 +266,7 @@ article.alert {
   }
 }
 
-/** Dialog Animations */
+/** Dialog */
 dialog {
   animation: fadeout var(--modal-duration) ease-out forwards;
 
@@ -272,6 +276,10 @@ dialog {
 
   >article {
     animation: slidedown var(--modal-duration) ease-out forwards;
+
+    >header>span.close {
+      cursor: pointer;
+    }
   }
 
   &[open]>article {
