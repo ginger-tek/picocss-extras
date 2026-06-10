@@ -170,6 +170,10 @@
   margin-bottom: 0;
 }
 
+.clear-children>* {
+  margin-bottom: 0;
+}
+
 .flex {
   display: flex;
   flex-direction: row;
@@ -177,7 +181,13 @@
   gap: var(--pico-spacing);
 
   >* {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  >:is(input:not([type=range], [type=checkbox], [type=radio]), select, textarea, button, [role="button"]) {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   &.centered {
@@ -209,11 +219,11 @@
   }
 }
 
-.grid.aligned {
+.grid.align-center {
   align-items: center;
 }
 
-.center {
+.text-center {
   text-align: center;
 }
 
@@ -226,6 +236,10 @@
 }
 
 :is(button, [role="button"]) {
+  &.nowrap {
+    white-space: nowrap;
+  }
+
   &.small {
     font-size: calc(var(--pico-font-size) * .975);
     padding: calc(var(--pico-spacing) * .5) var(--pico-spacing);
