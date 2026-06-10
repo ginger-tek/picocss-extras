@@ -217,6 +217,16 @@
   &.wrap {
     flex-wrap: wrap;
   }
+
+  &.stack {
+    @media (max-width: 767px) {
+      flex-direction: column;
+
+      >* {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .grid.align-center {
@@ -272,18 +282,23 @@ article.alert {
     display: none;
   }
 
+  &.success {
+    color: rgba(255, 255, 255, .9);
+    background: var(--pico-success);
+  }
+
   &.danger {
-    color: white;
+    color: rgba(255, 255, 255, .9);
     background: var(--pico-danger);
   }
 
   &.warning {
-    color: black;
+    color: rgba(0, 0, 0, .9);
     background: var(--pico-warning);
   }
 
   &.info {
-    color: white;
+    color: rgba(255, 255, 255, .9);
     background: var(--pico-info);
   }
 }
