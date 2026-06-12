@@ -1,37 +1,31 @@
 :root {
-  /** Success Colors (Green) */
-  --pico-success: #2F9E44;
-  /* 550 */
-  --pico-success-hover: #2B8840;
-  /* 600 */
-  --pico-success-focus: rgb(43, 136, 64, .5);
-  /* 600 */
+  /** Success Colors (Green 550) */
+  --pico-success: hsl(100, 78%, 27%);
+  --pico-success-hover: hsl(100, 78%, 22%);
+  --pico-success-focus: hsl(100, 78%, 27%, 0.52);
+  --pico-success-contrast: hsl(90, 63%, 7%);
+  /* 900 */
 
-  /** Danger Colors (Red) */
-  --pico-danger: #C52F21;
-  /* 550 */
-  --pico-danger-hover: #AF291D;
-  /* 600 */
-  --pico-danger-focus: rgb(175, 41, 29, .5);
-  /* 600 */
+  /** Danger Colors (Red 600) */
+  --pico-danger: hsl(5, 72%, 40%);
+  --pico-danger-hover: hsl(5, 72%, 35%);
+  --pico-danger-focus: hsl(5, 72%, 40%, 0.52);
+  --pico-danger-contrast: hsl(14, 66%, 11%);
+  /* 900 */
 
-  /** Warning Colors (Amber) */
-  --pico-warning: #FFBF00;
-  /* 200 */
-  --pico-warning-text: #D8A100;
-  /* 300 */
-  --pico-warning-hover: #E8AE01;
-  /* 250 */
-  --pico-warning-focus: rgb(232, 174, 1, .5);
-  /* 250 */
+  /** Warning Colors (Amber 200) */
+  --pico-warning: hsl(45, 100%, 50%);
+  --pico-warning-hover: hsl(45, 100%, 45%);
+  --pico-warning-focus: hsl(45, 100%, 50%, 0.52);
+  --pico-warning-contrast: hsl(43, 84%, 7%);
+  /* 900 */
 
-  /** Info Colors (Cyan) */
-  --pico-info: #047878;
-  /* 550 */
-  --pico-info-focus: rgb(4, 106, 106, .5);
-  /* 600 */
-  --pico-info-hover: #046A6A;
-  /* 600 */
+  /** Info Colors (Cyan 550) */
+  --pico-info: hsl(180, 100%, 27%);
+  --pico-info-hover: hsl(180, 100%, 22%);
+  --pico-info-focus: hsl(180, 100%, 27%, 0.52);
+  --pico-info-contrast: hsl(180, 72%, 7%);
+  /* 900 */
 
   /** Animation Values */
   --modal-duration: .2s;
@@ -46,7 +40,7 @@
   :host(:not([data-theme="light"])) {
     --pico-danger-hover: #D93526;
     /* 500 */
-    --pico-warning-text: #E8AE01;
+    --pico-warning-contrast: #E8AE01;
     /* 250 */
     --pico-warning-hover: #FECC63;
     /* 150 */
@@ -62,6 +56,7 @@
   &:not(.outline) {
     --pico-background-color: var(--pico-danger);
     --pico-border-color: var(--pico-danger);
+    --pico-color: var(--pico-danger-contrast);
   }
 
   &.outline {
@@ -91,13 +86,13 @@
   &:not(.outline) {
     --pico-background-color: var(--pico-warning);
     --pico-border-color: var(--pico-warning);
-    --pico-color: black;
+    --pico-color: var(--pico-warning-contrast);
   }
 
   &.outline {
     --pico-background-color: transparent;
     --pico-border-color: var(--pico-warning);
-    --pico-color: var(--pico-warning-text);
+    --pico-color: var(--pico-warning);
   }
 
   &:not(.outline):is(:hover, :active, :focus) {
@@ -121,6 +116,7 @@
   &:not(.outline) {
     --pico-background-color: var(--pico-info);
     --pico-border-color: var(--pico-info);
+    --pico-color: var(--pico-info-contrast);
   }
 
   &.outline {
