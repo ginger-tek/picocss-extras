@@ -3,28 +3,28 @@
   --pico-success: hsl(100, 78%, 27%);
   --pico-success-hover: hsl(100, 78%, 22%);
   --pico-success-focus: hsl(100, 78%, 27%, 0.52);
-  --pico-success-contrast: hsl(90, 63%, 7%);
+  --pico-success-contrast-light: hsl(90, 63%, 90%);
   /* 900 */
 
   /** Danger Colors (Red 600) */
   --pico-danger: hsl(5, 72%, 40%);
   --pico-danger-hover: hsl(5, 72%, 35%);
   --pico-danger-focus: hsl(5, 72%, 40%, 0.52);
-  --pico-danger-contrast: hsl(14, 66%, 11%);
+  --pico-danger-contrast-light: hsl(14, 66%, 90%);
   /* 900 */
 
   /** Warning Colors (Amber 200) */
   --pico-warning: hsl(45, 100%, 50%);
   --pico-warning-hover: hsl(45, 100%, 45%);
   --pico-warning-focus: hsl(45, 100%, 50%, 0.52);
-  --pico-warning-contrast: hsl(43, 84%, 7%);
+  --pico-warning-contrast-light: hsl(43, 84%, 90%);
   /* 900 */
 
   /** Info Colors (Cyan 550) */
   --pico-info: hsl(180, 100%, 27%);
   --pico-info-hover: hsl(180, 100%, 22%);
   --pico-info-focus: hsl(180, 100%, 27%, 0.52);
-  --pico-info-contrast: hsl(180, 72%, 7%);
+  --pico-info-contrast-light: hsl(180, 72%, 90%);
   /* 900 */
 
   /** Animation Values */
@@ -33,30 +33,12 @@
   --modal-distance: 1rem;
 }
 
-/** Dark Variants */
-@media only screen and (prefers-color-scheme: dark) {
-
-  :root:not([data-theme="light"]),
-  :host(:not([data-theme="light"])) {
-    --pico-danger-hover: #D93526;
-    /* 500 */
-    --pico-warning-contrast: #E8AE01;
-    /* 250 */
-    --pico-warning-hover: #FECC63;
-    /* 150 */
-    --pico-warning-focus: rgb(255, 191, 0, .5);
-    /* 200 */
-    --pico-info-hover: #058686;
-    /* 500 */
-  }
-}
-
 /** Danger Button */
 :where(button, [role="button"]).danger {
   &:not(.outline) {
     --pico-background-color: var(--pico-danger);
     --pico-border-color: var(--pico-danger);
-    --pico-color: var(--pico-danger-contrast);
+    --pico-color: var(--pico-danger-contrast-light);
   }
 
   &.outline {
@@ -86,7 +68,7 @@
   &:not(.outline) {
     --pico-background-color: var(--pico-warning);
     --pico-border-color: var(--pico-warning);
-    --pico-color: var(--pico-warning-contrast);
+    --pico-color: var(--pico-warning-contrast-light);
   }
 
   &.outline {
@@ -116,7 +98,7 @@
   &:not(.outline) {
     --pico-background-color: var(--pico-info);
     --pico-border-color: var(--pico-info);
-    --pico-color: var(--pico-info-contrast);
+    --pico-color: var(--pico-info-contrast-light);
   }
 
   &.outline {
